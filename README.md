@@ -41,7 +41,7 @@ title
 author
 genre
 is_available
-id_member_by_borrowed
+borrowed_by_member_id
 
 -members-
 id
