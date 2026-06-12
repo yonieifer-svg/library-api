@@ -6,7 +6,11 @@ def get_connection():
                                    user = "root",
                                    password = "root",
                                    database = "library_db")
-    return conn
+    try:
+        yield conn
+    finally:
+        conn.close()
+
 
 def create_tables():
     conn = get_connection()
@@ -16,7 +20,7 @@ def create_tables():
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     title VARCHAR(50) NOT NULL,
                     author VARCHAR(50) NOT NULL,
-                    genre ENUM( Fiction, Non-Fiction, Science, History, Other) NOT NULL,
+                    genre ENUM("Fiction", "Non-Fiction", "Science", "History", "Other") NOT NULL,
                     is_available BOOL NOT NULL,
                     borrowed_by_member_id INT NULL
                     )
