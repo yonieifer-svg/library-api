@@ -12,7 +12,7 @@ def get_all_members():
     return member_repo.get_all_members()
 
 @router.get("/{id}")
-def get_member_by_id():
+def get_member_by_id(id: int):
     return member_repo.get_member_by_id(id)
 
 @router.patch("/{id}")

@@ -7,7 +7,7 @@ class MemberRepo(BaseRepo):
         super().__init__(db, table)
     
     def create_member(self, data: dict):
-        data["is_ative"] = True
+        data["is_active"] = True
         data["total_borrows"] = 0
         return super().create(data)
 
@@ -46,6 +46,6 @@ class MemberRepo(BaseRepo):
                 result = cursor.fetchone()
                 return result
             
-member_repo = MemberRepo()
+member_repo = MemberRepo(db, "members")
 
     

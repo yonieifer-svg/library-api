@@ -36,7 +36,7 @@ class DB:
                     author VARCHAR(50) NOT NULL,
                     genre ENUM("Fiction", "Non-Fiction", "Science", "History", "Other") NOT NULL,
                     is_available BOOL NOT NULL,
-                    borrowed_by_member_id INT NULL
+                    borrowed_by INT NULL
                     )
                 """)
 

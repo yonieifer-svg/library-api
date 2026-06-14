@@ -31,7 +31,7 @@ class BookRepo(BaseRepo):
         return super().count({"is_available": True})
     
     def count_borrowed_books(self):
-        return super().count({"is_available": True})
+        return super().count({"is_available": False})
     
     def count_by_genre(self, genre):
         return super().count({"genre": genre})
