@@ -1,11 +1,12 @@
 from fastapi import APIRouter
 from database.book_db import book_repo
 
+
 router = APIRouter()
 
 @router.post("", status_code=201)
 def create_book(data: dict):
-    return book_repo.create(data)
+    return book_repo.create_book(data)
 
 @router.get("")
 def get_all_books():
@@ -27,4 +28,3 @@ def set_unavailable(id: int, member_id: int):
 def set_available(id: int, member_id: int):
     return book_repo.set_available(id, True, None)
 
-    

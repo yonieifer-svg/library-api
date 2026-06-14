@@ -29,10 +29,10 @@ class BookRepo(BaseRepo):
         return super().count()
     
     def count_available_books(self):
-        return super().count({"is_available": "True"})
+        return super().count({"is_available": True})
     
     def count_borrowed_books(self):
-        return super().count({"is_available": "True"})
+        return super().count({"is_available": True})
     
     def count_by_genre(self, genre):
         return super().count({"genre": genre})
@@ -42,17 +42,11 @@ class BookRepo(BaseRepo):
     
     
 
-
-
-
-
-
-book_repo = BookRepo(db.connection, "books")
+book_repo = BookRepo(db, "books")
 
 # book_repo.find_by_id(5)
 
 # book_repo.create({"name": "harry potter"})
 
 # book_repo.update(1, {"name": "bible"})
-
 

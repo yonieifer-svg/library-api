@@ -18,6 +18,7 @@ class BaseRepo:
         cursor.execute(query, values)
         self.db.connection.commit()
         cursor.close()
+        self.db.connection.close()
 
 
     def find(self, filter=None):
@@ -34,6 +35,7 @@ class BaseRepo:
         cursor.execute(query, values)
         result = cursor.fetchall()
         cursor.close()
+        self.db.connection.close()
         return result
     
 
@@ -46,6 +48,8 @@ class BaseRepo:
         cursor.execute(query, list(data.values()) + [id])
         self.db.connection.commit()
         cursor.close()
+        self.db.connection.close()
+
 
 
     def count(self, filter=None):
@@ -56,11 +60,12 @@ class BaseRepo:
             filter_query = f" WHERE {" AND ".join([key + " = %s" for key in filter])}"
             values = list(filter.values())
 
-        query = f"SELECT COUNT(*) AS total FROM books" + filter_query
+        query = f"SELECT COUNT(*) AS total FROM {self.table}" + filter_query
 
         cursor = self.db.connection.cursor(dictionary=True)
         cursor.execute(query, values)
-        result = cursor.fetchall()
+        result = cursor.fetchone()
         cursor.close()
+        self.db.connection.close()
         return result["total"]
     
