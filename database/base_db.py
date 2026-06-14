@@ -17,7 +17,7 @@ class BaseRepo:
         with self.db.get_connection() as conn:
             with conn.cursor(dictionary=True) as cursor:
                 cursor.execute(query, values)
-                self.db.connection.commit()
+                conn.commit()
 
 
     def find(self, filter=None):
@@ -46,7 +46,7 @@ class BaseRepo:
         with self.db.get_connection() as conn:
             with conn.cursor(dictionary=True) as cursor:
                 cursor.execute(query, values)
-                self.db.connection.commit()
+                conn.commit()
         
 
 
