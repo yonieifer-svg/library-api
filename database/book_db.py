@@ -1,4 +1,3 @@
-import mysql.connector
 from database.base_db import BaseRepo
 from database.db_connection import db
 
@@ -44,9 +43,4 @@ class BookRepo(BaseRepo):
 
 book_repo = BookRepo(db, "books")
 
-# book_repo.find_by_id(5)
-
-# book_repo.create({"name": "harry potter"})
-
-# book_repo.update(1, {"name": "bible"})
 
