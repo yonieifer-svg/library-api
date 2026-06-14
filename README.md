@@ -4,11 +4,7 @@ and manages a system of books and library members.
 =======================================================
 
 Create docker with MyQql:
-$ docker run --name <your-name-mysql>
-    -e MYSQL_ROOT_PASSWORD=<your-secret-pw>
-    -e MYSQL_DATABASE=library_db
-    -p 3306:3306
-    -d mysql:8
+$ docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8
 
 =======================================================
 
@@ -41,7 +37,7 @@ title
 author
 genre
 is_available
-borrowed_by_member_id
+borrowed_by
 
 -members-
 id
