@@ -34,7 +34,7 @@ class DB:
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     title VARCHAR(50) NOT NULL,
                     author VARCHAR(50) NOT NULL,
-                    genre ENUM("Fiction", "Non-Fiction", "Science", "History", "Other") NOT NULL,
+                    genre ENUM('Fiction', 'Non-Fiction', 'Science', 'History', 'Other') NOT NULL,
                     is_available BOOL NOT NULL,
                     borrowed_by INT NULL
                     )
